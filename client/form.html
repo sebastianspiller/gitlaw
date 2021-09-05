@@ -2,6 +2,24 @@
     <div class="row">
         <div class="col-md-8 order-md-1">
             <p><strong>logged in as:</strong> Judge Faden</p>
+
+            <h4 class="mb-3">Merging:</h4>
+
+            <div class="mb-3">
+                <label for="merge-branch">merge branch</label>
+                <select class="form-control" id="merge-branch">
+                    {{#each recipient in state.branches}}
+                        <option value="{{recipient}}">{{recipient}}</option>
+                    {{else}}
+                        <option value="">no open branch available</option>
+                    {{/each}}
+                </select>
+            </div>
+
+            <button class="btn btn-secondary btn-lg btn-block merge-btn" type="button">verify</button>
+
+            <hr class="mb-4">
+
             <h4 class="mb-3">Document Data:</h4>
             <form class="document-data needs-validation" novalidate>
                 <div class="row">
@@ -49,23 +67,6 @@
 
                 <button class="btn btn-primary btn-lg btn-block" type="submit">commit</button>
             </form>
-
-            <hr class="mb-4">
-
-            <h4 class="mb-3">Merging:</h4>
-
-            <div class="mb-3">
-                <label for="merge-branch">merge branch</label>
-                <select class="form-control" id="merge-branch">
-                    {{#each recipient in state.branches}}
-                        <option value="{{recipient}}">{{recipient}}</option>
-                    {{else}}
-                        <option value="">no open branch available</option>
-                    {{/each}}
-                </select>
-            </div>
-
-            <button class="btn btn-secondary btn-lg btn-block merge-btn" type="button">verify</button>
 
             <hr class="mb-4">
 
