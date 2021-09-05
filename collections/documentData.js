@@ -1,0 +1,1 @@
+DocumentData = new Meteor.Collection('documentData')

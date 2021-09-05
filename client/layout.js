@@ -1,0 +1,4 @@
+TemplateController('mainLayout', {
+    state: {
+    },
+})

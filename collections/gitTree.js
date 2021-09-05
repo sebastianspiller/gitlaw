@@ -1,0 +1,1 @@
+GitTree = new Meteor.Collection('gitTree')

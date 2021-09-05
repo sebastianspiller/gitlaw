@@ -1,0 +1,5 @@
+TemplateController('start', {
+    state: {
+    },
+
+})
