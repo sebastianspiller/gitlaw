@@ -45,6 +45,10 @@ TemplateController('form', {
             const subject = $('#subject').val()
             const message = $('#message').val()
 
+            if (!recipient || !beaId || !subject || !message) {
+                return
+            }
+
             $('.document-data').trigger('reset')
 
             Meteor.call('submitDocumentData', {

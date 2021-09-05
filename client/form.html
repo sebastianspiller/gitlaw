@@ -1,19 +1,19 @@
 <template name="form">
     <div class="row">
         <div class="col-md-8 order-md-1">
-            <p><strong>eingeloggt als:</strong> Judge Faden</p>
-            <h4 class="mb-3">Dokumentendaten:</h4>
+            <p><strong>logged in as:</strong> Judge Faden</p>
+            <h4 class="mb-3">Document Data:</h4>
             <form class="document-data needs-validation" novalidate>
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="recipient">Empfänger</label>
+                        <label for="recipient">Sender</label>
                         <input type="text" class="form-control" id="recipient" placeholder="" value="" required>
                         <div class="invalid-feedback">
                            Empfänger wird benötigt.
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="businessSign">Geschäftszeichen</label>
+                        <label for="businessSign">Business Sign</label>
                         <input type="text" class="form-control" id="businessSign" placeholder="" value="" required>
                         <div class="invalid-feedback">
                             Geschäftszeichen wird benötigt.
@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="subject">Betreff</label>
+                    <label for="subject">Subject</label>
                     <input type="text" class="form-control" id="subject" placeholder="" required>
                     <div class="invalid-feedback">
                         Betreff wird benötigt.
@@ -43,11 +43,11 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="message">Nachricht</label>
+                    <label for="message">Message</label>
                     <textarea class="form-control" id="message" rows="3"></textarea>
                 </div>
 
-                <button class="btn btn-primary btn-lg btn-block" type="submit">hochladen</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">commit</button>
             </form>
 
             <hr class="mb-4">
@@ -60,7 +60,7 @@
                     {{#each recipient in state.branches}}
                         <option value="{{recipient}}">{{recipient}}</option>
                     {{else}}
-                        <option value="">kein offener branch verfügbar</option>
+                        <option value="">no open branch available</option>
                     {{/each}}
                 </select>
             </div>
@@ -69,7 +69,7 @@
 
             <hr class="mb-4">
 
-            <button class="btn btn-danger btn-lg btn-block delete-btn" type="button">Neustart</button>
+            <button class="btn btn-danger btn-lg btn-block delete-btn" type="button">restart</button>
         </div>
     </div>
 </template>

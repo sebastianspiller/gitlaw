@@ -21,7 +21,7 @@ TemplateController('gitgraph', {
             const master = gitgraph.branch("123 OH 1/21");
 
             master.commit({
-                subject: 'Gerichtsakte vom OLG Düsseldorf', author: " <Judge Faden>", onMessageClick(event) {
+                subject: 'Court Records of OLG Düsseldorf', author: " <Judge Faden>", onMessageClick(event) {
                     console.log({this: this, event: event})
                 }
             })
@@ -44,7 +44,7 @@ TemplateController('gitgraph', {
                         break;
                     case 'merge':
                         master.merge({branch: branchObject[node.recipient], commitOptions: {author: ` <Judge Faden>`}})
-                        master.tag('verifiziert')
+                        master.tag('verified')
                         break;
                 }
             })
