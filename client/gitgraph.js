@@ -18,10 +18,10 @@ TemplateController('gitgraph', {
             const gitgraph = GitgraphJS.createGitgraph(graphContainer);
 
             // Simulate git commands with Gitgraph API.
-            const master = gitgraph.branch("master");
+            const master = gitgraph.branch("123 OH 1/21");
 
             master.commit({
-                subject: 'Initial commit', author: "Judge <giuseppe123>", onMessageClick(event) {
+                subject: 'Gerichtsakte vom OLG Düsseldorf', author: " <Judge Faden>", onMessageClick(event) {
                     console.log({this: this, event: event})
                 }
             })
@@ -43,7 +43,7 @@ TemplateController('gitgraph', {
                         nodeBranchObject[node.recipient] = node
                         break;
                     case 'merge':
-                        master.merge({branch: branchObject[node.recipient], commitOptions: {author: ` <${nodeBranchObject[node.recipient].beaId}>`}})
+                        master.merge({branch: branchObject[node.recipient], commitOptions: {author: ` <Judge Faden>`}})
                         master.tag('verifiziert')
                         break;
                 }

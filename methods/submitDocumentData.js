@@ -16,4 +16,8 @@ Meteor.methods({
         const gitTreeId = GitTree.insert({command: 'merge', recipient})
         return gitTreeId
     },
+    'dropCollections'() {
+        GitTree.remove({})
+        DocumentData.remove({})
+    }
 })

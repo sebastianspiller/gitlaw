@@ -25,3 +25,10 @@ FlowRouter.route('/login', {
         BlazeLayout.render('mainLayout', { main: 'login' })
     }
 })
+
+FlowRouter.route('/page/:documentDataId', {
+    name: 'page',
+    action: function (params, queryParams) {
+        BlazeLayout.render('mainLayout', { main: 'gitgraph', modal: 'page' })
+    }
+})

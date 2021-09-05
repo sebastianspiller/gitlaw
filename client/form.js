@@ -76,5 +76,16 @@ TemplateController('form', {
                 console.info(result)
             })
         },
+        'click .delete-btn'(e) {
+            e.preventDefault()
+
+            Meteor.call('dropCollections', {}, function (error, result) {
+                if (error) {
+                    console.error(error)
+                }
+
+                console.info(result)
+            })
+        },
     },
 })
