@@ -27,23 +27,21 @@ TemplateController('gitgraph', {
             })
 
             const branchObject= {}
-            const nodeBranchObject  = {}
             gitTree.forEach((node) => {
                 let branch = null
 
                 switch (node.command) {
                     case 'branch':
-                        branch = master.branch(node.recipient)
+                        branch = master.branch(node.subject)
                         branch.commit({
-                            subject: `${node.subject}`, author: ` <${node.beaId}>`, onMessageClick(event) {
+                            subject: ``, author: `${node.recipient} <${node.beaId}>`, onMessageClick(event) {
                                 $(location).attr('href', `/page/${node.documentId}`)
                             }
                         })
-                        branchObject[node.recipient] = branch
-                        nodeBranchObject[node.recipient] = node
+                        branchObject[node.subject] = branch
                         break;
                     case 'merge':
-                        master.merge({branch: branchObject[node.recipient], commitOptions: {author: ` <Judge Faden>`}})
+                        master.merge({branch: branchObject[node.subject], commitOptions: {author: ` <Judge Faden>`}})
                         master.tag('verified')
                         break;
                 }

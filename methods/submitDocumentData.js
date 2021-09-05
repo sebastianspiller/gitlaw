@@ -12,8 +12,8 @@ Meteor.methods({
 
         return gitTreeId
     },
-    'submitMerge'({recipient}) {
-        const gitTreeId = GitTree.insert({command: 'merge', recipient})
+    'submitMerge'({subject}) {
+        const gitTreeId = GitTree.insert({command: 'merge', subject})
         return gitTreeId
     },
     'dropCollections'() {

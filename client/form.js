@@ -23,12 +23,12 @@ TemplateController('form', {
             const branches = []
             gitTree.forEach((node) => {
                 if ('branch' === node.command) {
-                    branches.push(node.recipient)
+                    branches.push(node.subject)
                 }
             })
             gitTree.forEach((node) => {
                 if ('merge' === node.command) {
-                    branches.remove(node.recipient)
+                    branches.remove(node.subject)
                 }
             })
 
@@ -64,14 +64,14 @@ TemplateController('form', {
         'click .merge-btn'(event) {
             event.preventDefault()
 
-            const recipient = $('#merge-branch').val()
+            const subject = $('#merge-branch').val()
 
-            if (!recipient) {
+            if (!subject) {
                 return
             }
 
             Meteor.call('submitMerge', {
-                recipient
+               subject
             }, function (error, result) {
                 if (error) {
                     console.error(error)
@@ -83,13 +83,19 @@ TemplateController('form', {
         'click .delete-btn'(e) {
             e.preventDefault()
 
-            Meteor.call('dropCollections', {}, function (error, result) {
-                if (error) {
-                    console.error(error)
-                }
+            if (confirm('Are you sure you want to restart?')) {
+                // Save it!
+                Meteor.call('dropCollections', {}, function (error, result) {
+                    if (error) {
+                        console.error(error)
+                    }
 
-                console.info(result)
-            })
+                    console.info(result)
+                })
+            } else {
+                // Do nothing!
+                console.log('Thing was not restarted.');
+            }
         },
     },
 })
